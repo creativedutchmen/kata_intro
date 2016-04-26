@@ -1,4 +1,7 @@
 class Game:
+    """
+    Simple bowling game class to demonstrate TDD in Python
+    """
 
     def roll(self, pins):
         pass
