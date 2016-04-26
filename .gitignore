@@ -63,3 +63,6 @@ target/
 
 # OSX specific
 .DS_Store
+
+# Nose
+.noseids
