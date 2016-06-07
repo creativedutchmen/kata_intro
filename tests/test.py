@@ -1,5 +1,4 @@
 from intro.intro import Node
-
 from nose.tools import assert_equals, raises
 
 
