@@ -1,4 +1,4 @@
-from intro.intro import Node, ValueNode, OperatorNode, PlusOperatorNode
+from calculator.nodes import Node, ValueNode, OperatorNode, PlusOperatorNode
 from nose.tools import assert_equals, raises
 
 
