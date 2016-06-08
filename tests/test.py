@@ -1,22 +1,27 @@
-from intro.intro import Node
+from intro.intro import Node, ValueNode, OperatorNode, PlusOperatorNode
 from nose.tools import assert_equals, raises
 
 
 class testCalculator():
-    def test_sum(self):
-        left = Node(2)
-        right = Node(4)
-        calculation = Node(left, right, '+')
-        assert_equals(calculation.get_value(), 6)
+    @raises(NotImplementedError)
+    def test_not_implemented(self):
+        node = Node()
+        node.get_value()
 
-    def test_min(self):
-        left = Node(2)
-        right = Node(4)
-        calculation = Node(left, right, '-')
-        assert_equals(calculation.get_value(), -2)
+    def test_value_node(self):
+        node = ValueNode(4)
+        assert_equals(node.get_value(), 4)
 
-    def test_product(self):
-        left = Node(2)
-        right = Node(4)
-        calculation = Node(left, right, '*')
-        assert_equals(calculation.get_value(), 8)
+    def test_plus(self):
+        left = ValueNode(4)
+        right = ValueNode(-1)
+        operator = PlusOperatorNode(left, right)
+        assert_equals(operator.get_value(), 3)
+
+    def nested_test(self):
+        left = ValueNode(7)
+        right = PlusOperatorNode(
+            ValueNode(4), ValueNode(-1)
+        )
+        operator = PlusOperatorNode(left, right)
+        assert_equals(operator.get_value(), 10)
